@@ -14,9 +14,9 @@ const Loading = () => {
       transition={{
         duration: 1,
         delay: 0.3,
-        repeat: Infinity, // Makes the animation repeat infinitely
-        repeatType: "reverse", // Reverse the animation direction on each iteration
-      }} // Adjust animation timing
+        repeat: Infinity,
+        repeatType: "reverse",
+      }}
     >
       <div className=" text-black duration-1000 ease-in-out flex flex-row  gap-3 justify-center items-center py-12">
         <span className="border-4 border-[#9333EA] rounded-full w-6 h-6 bg-white inline-block animate-spin"></span>
