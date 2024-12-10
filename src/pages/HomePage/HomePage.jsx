@@ -5,7 +5,8 @@ import Button from "../../components/Button/Button";
 import Post from "../../components/Post/Post";
 import { fetchRandomPosts } from "../../services/fetchRandomPosts";
 import Loading from "../../components/Loading/Loading";
-/* import { motion } from "framer-motion"; */
+import { motion } from "framer-motion";
+
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -58,16 +59,7 @@ const HomePage = () => {
                 buttonText="Générer de nouveaux articles"
                 handleClick={handleClick}
               />
-              <div
-                id="posts"
-                name="posts"
-                className="flex flex-row gap-4 justify-center py-4 flex-wrap"
-              >
-                {posts.map((post) => (
-                  <Post key={post.id} title={post.title} content={post.body} />
-                ))}
-              </div>
-              {/*  <motion.div
+               <motion.div
                 id="posts"
                 name="posts"
                 className="flex flex-row gap-4 justify-center py-4 flex-wrap"
@@ -79,12 +71,12 @@ const HomePage = () => {
                   <motion.div
                     key={post.id}
                     variants={postVariants}
-                    transition={{ duration: 0.5, delay: index * 0.3 }} // Adjust animation timing
+                    transition={{ duration: 0.5, delay: index * 0.3 }} 
                   >
                     <Post title={post.title} content={post.body} />
                   </motion.div> 
                 ))}
-              </motion.div>*/}
+              </motion.div>
             </div>
           )}
         </main>
