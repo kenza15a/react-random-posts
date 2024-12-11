@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Loading from "../Loading/Loading";
 import Button from "../Button/Button";
 import { fetchRandomPosts } from "../../services/fetchRandomPosts";
+import Skeltons from "../skeltons/Skeltons";
 const PostsSection = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -37,28 +38,36 @@ const PostsSection = () => {
     }
   };
   return (
-    <section className="w-full" id="posts" name="posts">
-      <h1 className="text-4xl font-bold text-center text-black">
+    <section
+      className="w-full xl:w-[70vw] flex flex-col justify-center items-center mx-auto gap-4"
+      id="posts"
+      name="posts"
+    >
+      <h1 className="italic  text-4xl font-bold text-center text-black">
         Articles aléatoires
       </h1>
+      <Button
+        buttonText="Générer de nouveaux articles"
+        handleClick={handleClick}
+      />
       {!posts.length && (
-        <p className="text-center text-lg animate-pulse">
-          Aucun article chargé..
-        </p>
+        <div className="flex flex-col mt-4  py-4 items-center justify-center">
+          <p className="text-center text-lg animate-pulse">
+            Aucun article chargé.. Générez vos artciles !
+          </p>
+          <Skeltons />
+        </div>
       )}
       {loading ? (
         <Loading />
       ) : (
         <div className="flex flex-col mt-4  py-4 items-center justify-center">
-          <Button
-            buttonText="Générer de nouveaux articles"
-            handleClick={handleClick}
-          />
           <motion.div
             className="flex flex-row gap-4 justify-center py-4 flex-wrap"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            transition={{ duration: 2, ease: "easeInOut" }}
           >
             {posts.map((post, index) => (
               <motion.div

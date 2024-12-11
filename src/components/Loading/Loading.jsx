@@ -4,7 +4,6 @@ const Loading = () => {
   const divVariant = {
     step1: { opacity: 0, y: 0 },
     visible: { opacity: 1, y: 60 },
-    step3: { opacity: 0, y: 0 },
   };
   return (
     <motion.div
@@ -13,7 +12,7 @@ const Loading = () => {
       animate="visible"
       transition={{
         duration: 1,
-        delay: 0.3,
+        delay: 0.2,
         repeat: Infinity,
         repeatType: "reverse",
       }}
