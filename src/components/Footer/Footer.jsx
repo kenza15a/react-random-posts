@@ -5,7 +5,7 @@ const Footer = () => {
     <footer
       name="footer"
       id="footer"
-      className="bg-[#9333EA] text-black flex flex-col md:flex-row items-center justify-center py-6 h-16 max-h-[10vh] min-h-max"
+      className="bg-[#9333EA] text-black flex flex-col md:flex-row items-center justify-center py-4  md:py-12  min-h-max  md:h-20   w-full static bottom-0"
     >
       <p className=" flex flex-col md:flex-row text-center text-sm mx-auto  gap-2">
         © Kenza Filali -
