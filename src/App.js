@@ -4,19 +4,21 @@ import HomePage from "./pages/HomePage/HomePage";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import Navbar from "./components/Nabar/Navbar";
 import Footer from "./components/Footer/Footer";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 
 function App() {
   return (
-    <>
-    <Navbar/>
+    <Provider store={store}>
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/post/:id" element={<PostDetails />} />
         </Routes>
+        <Footer />
       </Router>
-      <Footer/>
-    </>
+    </Provider>
   );
 }
 

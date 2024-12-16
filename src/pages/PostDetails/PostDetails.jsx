@@ -36,7 +36,6 @@ const PostDetails = () => {
 
   return (
     <>
-      {" "}
       <Breadcrumbs articleTitle={postDetails.title} />
       <main className="flex-grow flex-col  w-full justify-center items-center py-8 min-h-screen  px-6">
         <div className=" flex flex-col gap-4  w-[90VW] md:w-[60vw] justify-center items-center px-6  md:px-12 ">

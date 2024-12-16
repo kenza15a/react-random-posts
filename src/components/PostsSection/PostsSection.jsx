@@ -5,6 +5,9 @@ import Loading from "../Loading/Loading";
 import Button from "../Button/Button";
 import { fetchRandomPosts } from "../../services/fetchRandomPosts";
 import Skeltons from "../skeltons/Skeltons";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosts } from "../../redux/postSlice";
+
 const PostsSection = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,10 +24,23 @@ const PostsSection = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const [posts, setPosts] = useState([]);
+  /*   const [posts, setPosts] = useState([]); */
+  const posts = useSelector((state) => state.posts);
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-
   const handleClick = async () => {
+    setLoading(true);
+    try {
+      const randomPosts = await fetchRandomPosts();
+      dispatch(setPosts(randomPosts)); // Save posts to Redux store
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+      setLoading(false);
+    }
+  };
+
+  /*   const handleClick = async () => {
     setLoading(true);
     try {
       const randomPosts = await fetchRandomPosts(); // appelant  le service pour récupérer les posts
@@ -36,7 +52,7 @@ const PostsSection = () => {
     } catch (error) {
       console.error("Error fetching posts in HomePage:", error);
     }
-  };
+  }; */
   return (
     <section
       className="w-full xl:w-[70vw] flex flex-col justify-center items-center mx-auto gap-4"
@@ -47,7 +63,7 @@ const PostsSection = () => {
         Articles aléatoires
       </h1>
       <Button
-        buttonText="Générer de nouveaux articles"
+        buttonText={posts.length ? "Générer de nouveaux articles" : "Charger des articles"}
         handleClick={handleClick}
       />
       {!posts.length && (
