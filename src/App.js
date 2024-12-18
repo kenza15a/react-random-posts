@@ -13,11 +13,16 @@ function App() {
     <Provider store={store}>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/post/:id" element={<PostDetails />} />
-        </Routes>
+
+        <main className="flex flex-grow flex-col w-full  items-center min-h-screen ">
+          <Routes>
+            {" "}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/post/:id" element={<PostDetails />} />
+          </Routes>
+        </main>
+
         <Footer />
       </Router>
     </Provider>

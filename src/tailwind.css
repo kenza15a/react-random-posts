@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Input field styling */
+.input {
+  @apply p-2 rounded-md border-2 border-gray-300 w-full;
+}
+
+/* Focus state styling */
+.input:focus {
+  @apply border-[#9333EA] border-2;
+}

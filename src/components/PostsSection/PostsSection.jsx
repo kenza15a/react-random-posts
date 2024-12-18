@@ -55,7 +55,7 @@ const PostsSection = () => {
   }; */
   return (
     <section
-      className="w-full xl:w-[70vw] flex flex-col justify-center items-center mx-auto gap-4"
+      className="w-full mt-12  xl:w-[80vw] flex flex-col justify-center items-center mx-auto gap-4"
       id="posts"
       name="posts"
     >
