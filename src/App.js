@@ -6,6 +6,7 @@ import Navbar from "./components/Nabar/Navbar";
 import Footer from "./components/Footer/Footer";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/post/:id" element={<PostDetails />} />
         </Routes>
         <Footer />

@@ -20,7 +20,7 @@ function Navbar() {
           <Link to="#posts">Actualités</Link>
         </li>
         <li>
-          <Link to="#footer">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </nav>
