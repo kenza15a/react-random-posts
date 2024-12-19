@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema } from "../../schemas/contactFormSchema";
-import Button from "../../components/Button/Button";
+import Button from "../Button/Button";
 import ReCAPTCHA from "react-google-recaptcha";
+import ReacaptchaComponent from "./ReacaptchaComponent";
 
 const ContactForm = ({ handleSubmit, ...props }) => {
   const {
@@ -98,11 +99,15 @@ const ContactForm = ({ handleSubmit, ...props }) => {
         {errors.message && (
           <p className="text-red-600">{errors.message.message}</p>
         )}
-
-        <ReCAPTCHA
-          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-          onChange={handleRecaptchaChange}
-        />
+        <div className="">
+          {" "}
+          {/* <ReCAPTCHA
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+            onChange={handleRecaptchaChange}
+          
+          /> */}
+          <ReacaptchaComponent sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} onChange={handleRecaptchaChange} />
+        </div>
 
         <Button
           buttonType="submit"
