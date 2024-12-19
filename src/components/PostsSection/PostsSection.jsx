@@ -85,15 +85,7 @@ const PostsSection = () => {
             animate="visible"
             transition={{ duration: 2, ease: "easeInOut" }}
           >
-            {/* {posts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                variants={postVariants}
-                transition={{ duration: 0.5, delay: index * 0.3 }}
-              >
-                <Post title={post.title} content={post.body} />
-              </motion.div>
-            ))} */}
+          
             {posts.map((post, index) => (
               <motion.div
                 key={post.id}
