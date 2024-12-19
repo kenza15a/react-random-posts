@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  fetchRandomPosts,
-  fetchPostById,
-} from "../../services/fetchRandomPosts";
+import { fetchPostById } from "../../services/fetchRandomPosts";
 import Loading from "../../components/Loading/Loading";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import { IoMdArrowBack } from "react-icons/io";
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -39,7 +37,7 @@ const PostDetails = () => {
       <section className="w-full h-full">
         <Breadcrumbs articleTitle={postDetails.title} />
 
-        <div className="flex flex-col gap-4 w-[90vw] md:w-[60vw] justify-center items-center px-6 md:px-12">
+        <div className="flex flex-col gap-4 w-[90vw] md:w-[100vw] justify-center items-center px-6 md:px-12 py-8 md:py-12">
           <h1 className="text-4xl font-bold mb-4">{postDetails.title}</h1>
           <p className="text-lg text-gray-700">
             {postDetails.body}
@@ -48,10 +46,14 @@ const PostDetails = () => {
             {postDetails.body}
             {postDetails.body}
           </p>
+          <Link to="/" className="text-[#9333EA] text-sm font-bold mt-12">
+            <span className="flex flex-row gap-2 justify-center items-center">
+              {" "}
+              <IoMdArrowBack />
+              Retour à la liste des articles
+            </span>
+          </Link>
         </div>
-        <Link to="/" className="text-[#9333EA] text-sm font-bold mt-12">
-          Retour à la liste des articles
-        </Link>
       </section>
     </>
   );

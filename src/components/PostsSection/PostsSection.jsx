@@ -40,19 +40,6 @@ const PostsSection = () => {
     }
   };
 
-  /*   const handleClick = async () => {
-    setLoading(true);
-    try {
-      const randomPosts = await fetchRandomPosts(); // appelant  le service pour récupérer les posts
-      setPosts(randomPosts); //mise a jour de l'etat avec les posts récupérés
-      setTimeout(() => {
-        setPosts(randomPosts);
-        setLoading(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Error fetching posts in HomePage:", error);
-    }
-  }; */
   return (
     <section
       className="w-full mt-12  xl:w-[80vw] flex flex-col justify-center items-center mx-auto gap-4"
@@ -63,7 +50,9 @@ const PostsSection = () => {
         Articles aléatoires
       </h1>
       <Button
-        buttonText={posts.length ? "Générer de nouveaux articles" : "Charger des articles"}
+        buttonText={
+          posts.length ? "Générer de nouveaux articles" : "Charger des articles"
+        }
         handleClick={handleClick}
       />
       {!posts.length && (
@@ -85,7 +74,6 @@ const PostsSection = () => {
             animate="visible"
             transition={{ duration: 2, ease: "easeInOut" }}
           >
-          
             {posts.map((post, index) => (
               <motion.div
                 key={post.id}

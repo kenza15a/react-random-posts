@@ -59,7 +59,11 @@ const Post = ({ title, content, id, className, ...props }) => {
       <p className="text-[#374151] text-sm max-h-20 overflow-hidden">
         {content}
       </p>
-      <Button buttonText="Lire l'article " handleClick={handleClick} className=" hover:scale-110 hover:shadow-xl" />
+      <Button
+        buttonText="Lire l'article "
+        handleClick={handleClick}
+        className=" hover:scale-110 hover:shadow-xl"
+      />
     </motion.div>
   );
 };
